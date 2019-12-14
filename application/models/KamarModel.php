@@ -13,6 +13,13 @@
             }
         }
 
+        public function getKamarFiltered($range1, $range2)
+        {
+            $this->db->where('harga >=', $range1);
+            $this->db->where('harga <=', $range2);
+            return $this->db->get('kamar')->result();
+        }
+
         public function storeKamar($data)
         {
             $this->db->insert('kamar', $data);

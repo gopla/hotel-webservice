@@ -19,16 +19,16 @@
             return $this->db->affected_rows();
         }
 
-        public function updateKamar($id, $data)
+        public function updateUser($id, $data)
         {
-            $this->db->where('id_kamar', $id);
-            $this->db->update('kamar', $data);
+            $this->db->where('id_user', $id);
+            $this->db->update('user', $data);
             return $this->db->affected_rows();
         }
 
-        public function deleteKamar($id)
+        public function deleteUser($id)
         {
-            $this->db->delete('kamar', ['id_kamar' => $id]);
+            $this->db->delete('user', ['id_user' => $id]);
             return $this->db->affected_rows();
         }
     
