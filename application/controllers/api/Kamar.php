@@ -37,47 +37,67 @@
 
         public function index_post()
         {
-            $data = [
-                'no_kamar' => $this->post('no_kamar'),
-                'tipe' => $this->post('tipe'),
-                'harga' => $this->post('harga'),
-                'jml_ranjang' => $this->post('jml_ranjang'),
-                'status' => 1,
-            ];
-
-            if ($this->kamar->storeKamar($data) > 0) {
-                $this->response([
-                    'success' => true,
-                    'message' => 'new kamar added'
-                ], REST_Controller::HTTP_CREATED);
-            } else {
+            if ($gambar = $this->upload()) {
+                
+                $data = [
+                    'no_kamar' => $this->post('no_kamar'),
+                    'tipe' => $this->post('tipe'),
+                    'harga' => $this->post('harga'),
+                    'jml_ranjang' => $this->post('jml_ranjang'),
+                    'status' => 1,
+                    'gambar' => './hotel-webservice/uploads/kamar/'.$gambar['upload_data']['orig_name'],
+                ];
+    
+                if ($this->kamar->storeKamar($data) > 0) {
+                    $this->response([
+                        'success' => true,
+                        'message' => 'new kamar added'
+                    ], REST_Controller::HTTP_CREATED);
+                } else {
+                    $this->response([
+                        'success' => false,
+                        'message' => 'failed to add data'
+                    ], REST_Controller::HTTP_BAD_REQUEST);
+                }
+            }else{
                 $this->response([
                     'success' => false,
-                    'message' => 'failed to add data'
+                    'message' => 'failed to add data',
+                    'apa' => $gambar['error']
                 ], REST_Controller::HTTP_BAD_REQUEST);
             }
+            
         }
 
         public function index_put()
         {
             $id = $this->put('id_kamar');
-            $data = [
-                'no_kamar' => $this->put('no_kamar'),
-                'tipe' => $this->put('tipe'),
-                'harga' => $this->put('harga'),
-                'jml_ranjang' => $this->put('jml_ranjang'),
-                'status' => $this->put('status'),
-            ];
+            if ($gambar = $this->upload()) {
+                $data = [
+                    'no_kamar' => $this->put('no_kamar'),
+                    'tipe' => $this->put('tipe'),
+                    'harga' => $this->put('harga'),
+                    'jml_ranjang' => $this->put('jml_ranjang'),
+                    'status' => $this->put('status'),
+                    'gambar' => './hotel-webservice/uploads/kamar/'.$gambar['upload_data']['orig_name'],
+                ];
 
-            if ($this->kamar->updateKamar($id, $data) > 0) {
-                $this->response([
-                    'success' => true,
-                    'message' => 'kamar updated'
-                ], REST_Controller::HTTP_CREATED);
-            } else {
+                if ($this->kamar->updateKamar($id, $data) > 0) {
+                    $this->response([
+                        'success' => true,
+                        'message' => 'kamar updated'
+                    ], REST_Controller::HTTP_CREATED);
+                } else {
+                    $this->response([
+                        'success' => false,
+                        'message' => 'failed to update data'
+                    ], REST_Controller::HTTP_BAD_REQUEST);
+                }
+            }else{
                 $this->response([
                     'success' => false,
-                    'message' => 'failed to update data'
+                    'message' => 'failed to add data',
+                    'apa' => $gambar['error']
                 ], REST_Controller::HTTP_BAD_REQUEST);
             }
         }
@@ -103,6 +123,34 @@
                         'data' => 'id not found'
                     ], REST_Controller::HTTP_NOT_FOUND);
                 }
+            }
+        }
+
+        public function upload()
+        {
+            $this->load->helper(array('form', 'url'));
+
+            $config = array(
+                'upload_path' => "./uploads/kamar",
+                'allowed_types' => "gif|jpg|png|jpeg|pdf",
+                'overwrite' => TRUE,
+                'max_size' => "2048000",
+                'max_height' => "768",
+                'max_width' => "1024"
+            );
+
+            $this->load->library('upload',$config);
+
+            if($this->upload->do_upload('gambar'))
+            {
+                $data = array('upload_data' => $this->upload->data());
+                return $data;
+                // return $this->response($data, REST_Controller::HTTP_OK);
+            }
+            else
+            {
+                $error = array('error' => $this->upload->display_errors());
+                return $data;
             }
         }
     
