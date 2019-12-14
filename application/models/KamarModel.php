@@ -38,6 +38,14 @@
             $this->db->delete('kamar', ['id_kamar' => $id]);
             return $this->db->affected_rows();
         }
+
+        public function changeKamarStatus($id)
+        {
+            $this->db->set('status', 0);
+            $this->db->where('id_kamar', $id);
+            $this->db->update('kamar');
+            return $this->db->affected_rows();
+        }
     
     }
     
