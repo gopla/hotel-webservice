@@ -13,6 +13,16 @@
             }
         }
 
+        public function loginAdmin($uname, $pass)
+        {
+            return $this->db->get_where('user',['username' => $uname, 'password' => $pass, 'role' => 'Admin'])->result();
+        }
+
+        public function loginUser($uname, $pass)
+        {
+            return $this->db->get_where('user',['username' => $uname, 'password' => $pass, 'role' => 'User'])->result();
+        }
+
         public function storeUser($data)
         {
             $this->db->insert('user', $data);

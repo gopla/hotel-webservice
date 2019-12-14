@@ -20,14 +20,14 @@
         {
             $id = $this->get('id_transaksi');
             if ($id == null) {
-                $lyn = $this->transaksi->getTransaksi();
+                $trn = $this->transaksi->getTransaksi();
             }else{
-                $lyn = $this->transaksi->getTransaksi($id);
+                $trn = $this->transaksi->getTransaksi($id);
             }
-            if ($lyn) {
+            if ($trn) {
                 $this->response([
                     'status' => true,
-                    'data' => $lyn
+                    'data' => $trn
                 ], REST_Controller::HTTP_OK);
             }else{
                 $this->response([
