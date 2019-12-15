@@ -110,6 +110,23 @@
                 }
             }
         }
+
+        public function user_get()
+        {
+            $id = $this->get('id_user');
+            $trn = $this->transaksi->getTransaksiByIdUser($id);
+            if ($trn) {
+                $this->response([
+                    'status' => true,
+                    'data' => $trn
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => 'id not found'
+                ], REST_Controller::HTTP_NOT_FOUND);
+            }
+        }
     
     }
     
