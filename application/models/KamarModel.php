@@ -7,9 +7,9 @@
         public function getKamar($id = null)
         {
             if ($id == null) {
-                return $this->db->get('kamar')->result();
+                return $this->db->get_where('kamar', ['status' => 1])->result();
             } else {
-                return $this->db->get_where('kamar', ['id_kamar' => $id])->result();
+                return $this->db->get_where('kamar', ['id_kamar' => $id, 'status' => 1])->result();
             }
         }
 
