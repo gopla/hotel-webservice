@@ -17,11 +17,15 @@
         public function index_get()
         {
             $id = $this->get('id');
-            if ($id == null) {
-                $kmr = $this->kamar->getKamar();
-            }else{
-                $kmr = $this->kamar->getKamar($id);
+            $tipe = $this->get('tipe');
+            if (!empty($tipe)) {
+                $kmr = $this->kamar->getKamar($id, $tipe);
+            } else if(!empty($tipe) && !empty($id)){
+                $kmr = $this->kamar->getKamar($id, $tipe);
+            }else if(empty($tipe)){
+                $kmr = $this->kamar->getJenisKamar();
             }
+            
             if ($kmr) {
                 $this->response([
                     'status' => true,

@@ -4,13 +4,20 @@
     
     class KamarModel extends CI_Model {
     
-        public function getKamar($id = null)
+        public function getKamar($id = null, $tipe)
         {
             if ($id == null) {
-                return $this->db->get_where('kamar', ['status' => 1])->result();
+                return $this->db->get_where('kamar', ['status' => 1, 'tipe' => $tipe])->result();
             } else {
-                return $this->db->get_where('kamar', ['id_kamar' => $id, 'status' => 1])->result();
+                return $this->db->get_where('kamar', ['id_kamar' => $id, 'status' => 1, 'tipe' => $tipe])->result();
             }
+        }
+
+        public function getJenisKamar()
+        {
+            $this->db->group_by('tipe');
+            return $this->db->get('kamar')->result();
+            
         }
 
         public function getKamarFiltered($range1, $range2)
