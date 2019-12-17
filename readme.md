@@ -105,3 +105,55 @@
     body : {
     	id_user: int
     }
+
+## Transaksi
+
+### GET
+
+#### /api/transaksi
+
+    Get All Transaksi
+
+#### /api/transaksi?id_transaksi=int
+
+    Get Transaksi by Id Transaksi
+
+#### /api/transaksi/user?id_user=int
+
+    Get Transaksi by Id User
+
+### POST
+
+#### /api/transaksi
+
+    Input transaksi
+    body : {
+    	id_kamar: int
+    	id_user: int
+    	checkin: string / date
+    	checkout: string / date
+    	total: int
+    }
+
+### PUT
+
+#### /api/transaksi
+
+    Edit transaksi
+    body : {
+    	id_transaksi: int
+    	id_kamar: int
+    	id_user: int
+    	checkin: string / date
+    	checkout: string / date
+    	total: int
+    }
+
+### DELETE
+
+#### /api/transaksi
+
+    Delete transaksi
+    body : {
+    	id_transaksi: int
+    }

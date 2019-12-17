@@ -41,7 +41,6 @@
         {
             $data = [
                 'id_kamar' => $this->post('id_kamar'),
-                'id_layanan' => $this->post('id_layanan'),
                 'id_user' => $this->post('id_user'),
                 'checkin' => $this->post('checkin'),
                 'checkout' => $this->post('checkin'),
@@ -67,7 +66,6 @@
             $id = $this->put('id_transaksi');
             $data = [
                 'id_kamar' => $this->put('id_kamar'),
-                'id_layanan' => $this->put('id_layanan'),
                 'id_user' => $this->put('id_user'),
                 'checkin' => $this->put('checkin'),
                 'checkout' => $this->put('checkin'),
