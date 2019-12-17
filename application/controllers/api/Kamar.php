@@ -19,7 +19,7 @@
             $id = $this->get('id');
             $tipe = $this->get('tipe');
             if (!empty($tipe)) {
-                $kmr = $this->kamar->getKamar($id, $tipe);
+                $kmr = $this->kamar->getKamar($id = null, $tipe);
             } else if(!empty($tipe) && !empty($id)){
                 $kmr = $this->kamar->getKamar($id, $tipe);
             }else if(empty($tipe)){
