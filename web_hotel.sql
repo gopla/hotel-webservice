@@ -29,15 +29,15 @@ CREATE TABLE IF NOT EXISTS `kamar` (
   PRIMARY KEY (`id_kamar`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
--- Dumping data for table web_hotel.kamar: ~7 rows (approximately)
+-- Dumping data for table web_hotel.kamar: ~6 rows (approximately)
 /*!40000 ALTER TABLE `kamar` DISABLE KEYS */;
 INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe`, `harga`, `jml_ranjang`, `deskripsi`, `status`, `gambar`) VALUES
-	(1, 101, 'Regular', 150000, 1, NULL, 1, './hotel-webservice/uploads/kamar/'),
-	(23, 102, 'Regular', 250000, 1, NULL, 0, './hotel-webservice/uploads/kamar/'),
-	(24, 102, 'Regular', 200000, 1, NULL, 1, './hotel-webservice/uploads/kamar/'),
-	(25, 201, 'Apik', 300000, 1, NULL, 1, './hotel-webservice/uploads/kamar/'),
-	(26, 202, 'Apik', 300000, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './hotel-webservice/uploads/kamar/'),
-	(27, 202, 'Apik', 300000, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './hotel-webservice/uploads/kamar/'),
+	(1, 101, 'Regular', 150000, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './hotel-webservice/uploads/kamar/images.jpg'),
+	(23, 102, 'Regular', 250000, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 0, './hotel-webservice/uploads/kamar/images.jpg'),
+	(24, 102, 'Regular', 200000, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './hotel-webservice/uploads/kamar/images.jpg'),
+	(25, 201, 'Apik', 300000, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './hotel-webservice/uploads/kamar/images2.jpg'),
+	(26, 202, 'Apik', 300000, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './hotel-webservice/uploads/kamar/images.jpg'),
+	(27, 202, 'Apik', 300000, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './hotel-webservice/uploads/kamar/images2.jpg'),
 	(28, 202, 'Apik', 300000, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './hotel-webservice/uploads/kamar/images2.jpg');
 /*!40000 ALTER TABLE `kamar` ENABLE KEYS */;
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table web_hotel.user: ~1 rows (approximately)
+-- Dumping data for table web_hotel.user: ~0 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id_user`, `nama`, `email`, `username`, `password`, `role`) VALUES
 	(1, 'Marsina', 'a@a.com', 'rizna', '123', 'Admin');

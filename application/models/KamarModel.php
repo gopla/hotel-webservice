@@ -4,7 +4,7 @@
     
     class KamarModel extends CI_Model {
     
-        public function getKamar($id = null, $tipe)
+        public function getKamar($id, $tipe)
         {
             if ($id == null) {
                 return $this->db->get_where('kamar', ['status' => 1, 'tipe' => $tipe])->result();
