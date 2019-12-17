@@ -49,6 +49,7 @@
                     'harga' => $this->post('harga'),
                     'jml_ranjang' => $this->post('jml_ranjang'),
                     'status' => 1,
+                    'deskripsi' => $this->post('deskripsi'),
                     'gambar' => './hotel-webservice/uploads/kamar/'.$gambar['upload_data']['orig_name'],
                 ];
     
@@ -70,7 +71,7 @@
                     'apa' => $gambar['error']
                 ], REST_Controller::HTTP_BAD_REQUEST);
             }
-            
+                       
         }
 
         public function index_put()
@@ -82,6 +83,7 @@
                 'harga' => $this->put('harga'),
                 'jml_ranjang' => $this->put('jml_ranjang'),
                 'status' => $this->put('status'),
+                'deskripsi' => $this->post('deskripsi'),
             ];
 
             if ($this->kamar->updateKamar($id, $data) > 0) {
