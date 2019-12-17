@@ -157,3 +157,19 @@
     body : {
     	id_transaksi: int
     }
+
+
+ ## Login
+### POST
+#### /api/login/user
+	Login user
+	body : {
+		username: string,
+		password: string
+	}
+#### /api/login/admin
+	Login admin
+	body : {
+		username: string,
+		password: string
+	}
