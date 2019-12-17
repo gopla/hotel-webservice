@@ -43,7 +43,7 @@
                 'id_kamar' => $this->post('id_kamar'),
                 'id_user' => $this->post('id_user'),
                 'checkin' => $this->post('checkin'),
-                'checkout' => $this->post('checkin'),
+                'checkout' => $this->post('checkout'),
                 'total' => $this->post('total'),
             ];
 
@@ -68,7 +68,7 @@
                 'id_kamar' => $this->put('id_kamar'),
                 'id_user' => $this->put('id_user'),
                 'checkin' => $this->put('checkin'),
-                'checkout' => $this->put('checkin'),
+                'checkout' => $this->put('checkout'),
                 'total' => $this->put('total'),
             ];
 
