@@ -40,6 +40,7 @@
             $data = [
                 'nama' => $this->post('nama'),
                 'email' => $this->post('email'),
+                'no_telp' => $this->post('no_telp'),
                 'username' => $this->post('username'),
                 'password' => $this->post('password'),
                 'role' => $this->post('role'),
@@ -64,6 +65,7 @@
             $data = [
                 'nama' => $this->put('nama'),
                 'email' => $this->put('email'),
+                'no_telp' => $this->put('no_telp'),
                 'username' => $this->put('username'),
                 'password' => $this->put('password'),
                 'role' => $this->put('role'),
