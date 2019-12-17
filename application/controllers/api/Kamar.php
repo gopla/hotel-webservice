@@ -18,7 +18,7 @@
         {
             $id = $this->get('id');
             $tipe = $this->get('tipe');
-            if (!empty($tipe)) {
+            if (!empty($tipe) && empty($id)) {
                 $kmr = $this->kamar->getKamar($id = null, $tipe);
             } else if(!empty($tipe) && !empty($id)){
                 $kmr = $this->kamar->getKamar($id, $tipe);
@@ -83,7 +83,7 @@
                 'harga' => $this->put('harga'),
                 'jml_ranjang' => $this->put('jml_ranjang'),
                 'status' => $this->put('status'),
-                'deskripsi' => $this->post('deskripsi'),
+                'deskripsi' => $this->put('deskripsi'),
             ];
 
             if ($this->kamar->updateKamar($id, $data) > 0) {
