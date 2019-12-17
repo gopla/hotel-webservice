@@ -39,9 +39,11 @@
 
         public function index_post()
         {
+            $date = date('Y-m-d');
             $data = [
                 'id_kamar' => $this->post('id_kamar'),
                 'id_user' => $this->post('id_user'),
+                'tanggal' => $date,
                 'checkin' => $this->post('checkin'),
                 'checkout' => $this->post('checkout'),
                 'total' => $this->post('total'),
