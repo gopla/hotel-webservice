@@ -14,7 +14,6 @@
             } else {
                 $this->db->select('transaksi.*, kamar.no_kamar, user.nama');
                 $this->db->join('kamar', 'transaksi.id_kamar = kamar.id_kamar');
-                $this->db->join('layanan', 'transaksi.id_layanan = layanan.id_layanan');
                 $this->db->join('user', 'transaksi.id_user = user.id_user');
                 return $this->db->get_where('transaksi', ['id_transaksi' => $id])->result();
             }
@@ -24,7 +23,6 @@
         {
             $this->db->select('transaksi.*, kamar.no_kamar, user.nama');
             $this->db->join('kamar', 'transaksi.id_kamar = kamar.id_kamar');
-            $this->db->join('layanan', 'transaksi.id_layanan = layanan.id_layanan');
             $this->db->join('user', 'transaksi.id_user = user.id_user');
             return $this->db->get_where('transaksi', ['transaksi.id_user' => $idUser])->result();
         }
