@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `kamar` (
   PRIMARY KEY (`id_kamar`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
--- Dumping data for table web_hotel.kamar: ~6 rows (approximately)
+-- Dumping data for table web_hotel.kamar: ~7 rows (approximately)
 /*!40000 ALTER TABLE `kamar` DISABLE KEYS */;
 INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe`, `harga`, `jml_ranjang`, `deskripsi`, `status`, `gambar`) VALUES
 	(1, 101, 'Regular', 150000, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quae, quibusdam aut minus ex consequatur eaque vel veritatis! Perferendis tempore velit reiciendis illo distinctio inventore cum culpa dolores molestias rerum?', 1, './rest-hotel/frontend-hotel/uploads/kamar/images.jpg'),
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table web_hotel.user: ~0 rows (approximately)
+-- Dumping data for table web_hotel.user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id_user`, `nama`, `email`, `username`, `password`, `role`) VALUES
 	(1, 'Marsina', 'a@a.com', 'rizna', '123', 'Admin');
