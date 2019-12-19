@@ -33,7 +33,7 @@
             return $this->db->affected_rows();
         }
 
-        public function updateTransaksu($id, $data)
+        public function updateTransaksi($id, $data)
         {
             $this->db->where('id_transaksi', $id);
             $this->db->update('transaksi', $data);
