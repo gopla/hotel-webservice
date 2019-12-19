@@ -13,14 +13,9 @@
             }
         }
 
-        public function loginAdmin($uname, $pass)
+        public function login($uname, $pass)
         {
-            return $this->db->get_where('user',['username' => $uname, 'password' => $pass, 'role' => 'Admin'])->result();
-        }
-
-        public function loginUser($uname, $pass)
-        {
-            return $this->db->get_where('user',['username' => $uname, 'password' => $pass, 'role' => 'User'])->result();
+            return $this->db->get_where('user',['username' => $uname, 'password' => $pass])->result();
         }
 
         public function storeUser($data)

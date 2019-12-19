@@ -78,6 +78,7 @@
     body : {
     	nama: string
     	email: string
+    	no_telp: string
     	username: string
     	password: string
     	role: string
@@ -92,6 +93,7 @@
     	id_user: int
     	nama: string
     	email: string
+    	no_telp: string
     	username: string
     	password: string
     	role: string
@@ -158,18 +160,14 @@
     	id_transaksi: int
     }
 
+## Login
 
- ## Login
 ### POST
-#### /api/login/user
-	Login user
-	body : {
-		username: string,
-		password: string
-	}
-#### /api/login/admin
-	Login admin
-	body : {
-		username: string,
-		password: string
-	}
+
+#### /api/user/login
+
+    Login all role
+    body : {
+    	username: string,
+    	password: string
+    }
