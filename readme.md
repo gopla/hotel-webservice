@@ -20,6 +20,15 @@
 
     Get Kamar with price filter
 
+#### /api/kamar/lokasi?lokasi=string
+
+	Get Kamar with location filter
+
+### /api/kamar/kamar/
+
+	Get All Kamar Datas
+	
+
 ### POST
 
 #### /api/kamar
