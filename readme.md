@@ -39,6 +39,8 @@
     	tipe: string
     	harga: int
     	jml_ranjang: int
+	deskripsi: string
+	lokasi: string
     	status: int
     	gambar: text
     }
@@ -49,11 +51,12 @@
 
     Edit kamar
     body : {
-    	id_kamar: int
     	no_kamar: int
     	tipe: string
     	harga: int
     	jml_ranjang: int
+	deskripsi: string
+	lokasi: string
     	status: int
     	gambar: text
     }
