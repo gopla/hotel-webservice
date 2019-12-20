@@ -13,6 +13,11 @@
             }
         }
 
+        public function getAllKamar()
+        {
+            return $this->db->get('kamar')->result();
+        }
+
         public function getJenisKamar()
         {
             $this->db->group_by('tipe');
@@ -25,6 +30,14 @@
             $this->db->where('harga >=', $range1);
             $this->db->where('harga <=', $range2);
             return $this->db->get('kamar')->result();
+        }
+
+        public function getKamarByLokasi($lokasi)
+        {
+            $this->db->like('lokasi', $lokasi);
+            return $this->db->get('kamar')->result();
+            
+            
         }
 
         public function storeKamar($data)

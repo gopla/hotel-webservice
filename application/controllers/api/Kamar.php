@@ -41,7 +41,7 @@
 
         public function index_post()
         {
-            if ($gambar = $this->upload()) {
+            // if ($gambar = $this->upload()) {
                 
                 $data = [
                     'no_kamar' => $this->post('no_kamar'),
@@ -50,7 +50,8 @@
                     'jml_ranjang' => $this->post('jml_ranjang'),
                     'status' => 1,
                     'deskripsi' => $this->post('deskripsi'),
-                    'gambar' => './hotel-webservice/uploads/kamar/'.$gambar['upload_data']['orig_name'],
+                    'lokasi' => $this->post('lokasi'),
+                    'gambar' => $this->post('gambar'),
                 ];
     
                 if ($this->kamar->storeKamar($data) > 0) {
@@ -64,13 +65,14 @@
                         'message' => 'failed to add data'
                     ], REST_Controller::HTTP_BAD_REQUEST);
                 }
-            }else{
-                $this->response([
-                    'success' => false,
-                    'message' => 'failed to add data',
-                    'apa' => $gambar['error']
-                ], REST_Controller::HTTP_BAD_REQUEST);
-            }
+            // }
+            // else{
+            //     $this->response([
+            //         'success' => false,
+            //         'message' => 'failed to add data',
+            //         'apa' => $gambar['error']
+            //     ], REST_Controller::HTTP_BAD_REQUEST);
+            // }
                        
         }
 
@@ -83,6 +85,7 @@
                 'harga' => $this->put('harga'),
                 'jml_ranjang' => $this->put('jml_ranjang'),
                 'status' => $this->put('status'),
+                'lokasi' => $this->put('lokasi'),
                 'deskripsi' => $this->post('deskripsi'),
             ];
 
@@ -138,6 +141,49 @@
                     'status' => true,
                     'awal' => $range1,
                     'akhir' => $range2,
+                    'data' => $kmr
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => 'range undefined'
+                ], REST_Controller::HTTP_NOT_FOUND);
+            }
+        }
+
+        public function lokasi_get()
+        {
+            $lokasi = $this->get('lokasi');
+            if ($lokasi != null) {
+                $data = $this->kamar->getKamarByLokasi($lokasi);
+                if ($data) {
+                    $this->response([
+                        'status' => true,
+                        'lokasi' => $lokasi,
+                        'data' => $data
+                    ], REST_Controller::HTTP_OK);
+                } else {
+                    $this->response([
+                        'status' => false,
+                        'lokasi' => 'failed to get data'
+                    ], REST_Controller::HTTP_BAD_REQUEST);
+                }
+                
+            } else {
+                $this->response([
+                    'status' => false,
+                    'data' => 'location undefined'
+                ], REST_Controller::HTTP_NOT_FOUND);
+            }
+            
+        }
+
+        public function kamar_get()
+        {
+            $kmr = $this->kamar->getAllKamar();
+            if ($kmr) {
+                $this->response([
+                    'status' => true,
                     'data' => $kmr
                 ], REST_Controller::HTTP_OK);
             }else{
