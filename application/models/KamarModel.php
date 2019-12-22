@@ -34,12 +34,15 @@
         public function getKamarByLokasi($lokasi)
         {
             $this->db->like('lokasi', $lokasi);
+            $this->db->group_by('lokasi');
+            $this->db->group_by('tipe');
             return $this->db->get('kamar')->result(); 
         }
 
         public function getKamarByLokasiGroupBy()
         {
             $this->db->group_by('lokasi');
+            $this->db->group_by('tipe');
             return $this->db->get('kamar')->result();
         }
 
