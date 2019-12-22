@@ -22,7 +22,6 @@
         {
             $this->db->group_by('tipe');
             return $this->db->get('kamar')->result();
-            
         }
 
         public function getKamarFiltered($range1, $range2)
@@ -35,9 +34,13 @@
         public function getKamarByLokasi($lokasi)
         {
             $this->db->like('lokasi', $lokasi);
+            return $this->db->get('kamar')->result(); 
+        }
+
+        public function getKamarByLokasiGroupBy()
+        {
+            $this->db->group_by('lokasi');
             return $this->db->get('kamar')->result();
-            
-            
         }
 
         public function storeKamar($data)

@@ -20,14 +20,17 @@
 
     Get Kamar with price filter
 
+#### /api/kamar/kamar/
+
+    Get All Kamar Datas
+
+#### /api/kamar/lokasi
+
+    Get kamar with group location
+
 #### /api/kamar/lokasi?lokasi=string
 
-	Get Kamar with location filter
-
-### /api/kamar/kamar/
-
-	Get All Kamar Datas
-	
+    Get Kamar with location filter
 
 ### POST
 
@@ -39,8 +42,8 @@
     	tipe: string
     	harga: int
     	jml_ranjang: int
-	deskripsi: string
-	lokasi: string
+    deskripsi: string
+    lokasi: string
     	status: int
     	gambar: text
     }
@@ -55,8 +58,8 @@
     	tipe: string
     	harga: int
     	jml_ranjang: int
-	deskripsi: string
-	lokasi: string
+    deskripsi: string
+    lokasi: string
     	status: int
     	gambar: text
     }

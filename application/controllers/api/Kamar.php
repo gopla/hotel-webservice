@@ -16,7 +16,7 @@
     
         public function index_get()
         {
-            $id = $this->get('id');
+            $id = $this->get('id_kamar');
             $tipe = $this->get('tipe');
             if (!empty($tipe)) {
                 $kmr = $this->kamar->getKamar($id, $tipe);
@@ -165,17 +165,24 @@
                 } else {
                     $this->response([
                         'status' => false,
-                        'lokasi' => 'failed to get data'
+                        'data' => 'location undefined'
+                    ], REST_Controller::HTTP_NOT_FOUND);
+                } 
+            }else {
+                $data = $this->kamar->getKamarByLokasiGroupBy();
+                if ($data) {
+                    $this->response([
+                        'status' => true,
+                        'lokasi' => $lokasi,
+                        'data' => $data
+                    ], REST_Controller::HTTP_OK);
+                }else{
+                    $this->response([
+                        'status' => false,
+                        'message' => 'location undefined'
                     ], REST_Controller::HTTP_BAD_REQUEST);
                 }
-                
-            } else {
-                $this->response([
-                    'status' => false,
-                    'data' => 'location undefined'
-                ], REST_Controller::HTTP_NOT_FOUND);
             }
-            
         }
 
         public function kamar_get()
