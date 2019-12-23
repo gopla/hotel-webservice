@@ -42,7 +42,6 @@
         public function getKamarByLokasiGroupBy()
         {
             $this->db->group_by('lokasi');
-            $this->db->group_by('tipe');
             return $this->db->get('kamar')->result();
         }
 
