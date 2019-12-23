@@ -18,13 +18,16 @@
         {
             $id = $this->get('id_kamar');
             $tipe = $this->get('tipe');
-            if (!empty($tipe)) {
-                $kmr = $this->kamar->getKamar($id, $tipe);
-            } else if(!empty($tipe) && !empty($id)){
-                $kmr = $this->kamar->getKamar($id, $tipe);
+            $lokasi = $this->get('lokasi');
+            if (!empty($tipe) && !empty($lokasi)) {
+                $kmr = $this->kamar->getKamar($id, $tipe, $lokasi);
+            }else if(!empty($tipe) && !empty($id)){
+                $kmr = $this->kamar->getKamar($id, $tipe, '');
             }else if(empty($tipe)){
                 $kmr = $this->kamar->getJenisKamar();
-            }
+            }else if(empty($lokasi)){
+                $kmr = $this->kamar->getKamar($id, $tipe, '');
+            } 
             
             if ($kmr) {
                 $this->response([
